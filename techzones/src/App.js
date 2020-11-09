@@ -1,17 +1,13 @@
+import logo from './logo.svg';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import TopHeader from './Component/TopHeader'
-import {Component} from 'react'
-import BottomHeader from './Component/BottomHeader';
-class App extends Component {
-  render() {
-    return (
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './Component/navbar'
+function App() {
+  return (
     <div className="App">
-      <TopHeader /> 
-      <BottomHeader />  
+      <Navbar />   
     </div>
-    );
-  }
+  );
 }
 
 export default App;
