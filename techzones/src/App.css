@@ -1,9 +1,7 @@
 .TopHeader {
   display:block;
-
 }
 .BottomHeader {
   display:block;
-  top: 50px;
   width: 100%;
 }

@@ -2,6 +2,10 @@ import { React, Component } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import {BsSearch} from 'react-icons/bs'
+import {IoIosListBox} from 'react-icons/io'
+import {GiAutoRepair} from 'react-icons/gi'
+import {BsFillPersonFill} from 'react-icons/bs';
+import {FaShoppingCart} from "react-icons/fa";
 export default class Navbar extends Component {
   render() {
     return (
@@ -28,12 +32,24 @@ export default class Navbar extends Component {
                 </form>
                 <li className = "nav-item">
                     <a href = "#">
+                        <IoIosListBox/>
                         Kiểm tra đơn hàng
                     </a>
                 </li>
                 <li className = "nav-item">
                     <a href = "#">
+                        <GiAutoRepair/>
                         Kiểm tra bảo hành
+                    </a>
+                </li>
+                <li className ="nav-item" id = "login">
+                    <a href ="#">
+                        <BsFillPersonFill/> 
+                    </a>
+                </li>
+                <li className ="nav-item" id= "cart">
+                    <a href ="#">
+                        <FaShoppingCart/> 
                     </a>
                 </li>
                 
