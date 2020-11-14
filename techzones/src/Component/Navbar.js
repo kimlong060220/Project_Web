@@ -11,17 +11,17 @@ export default class Navbar extends Component {
     return (
         <nav className = "topnav">
             <ul className = "nav-list">
-                <li className = "nav-item">
+                <li className = "Nav-item">
                     <a href = "#">
                         Home
                     </a>
                 </li>
-                <li className = "nav-item">
+                <li className = "Nav-item">
                     <a href = "#">
                         Tin tức
                     </a>
                 </li>
-                <li className = "nav-item">
+                <li className = "Nav-item">
                     <a href = "#">
                         Thương hiệu
                     </a>
@@ -30,24 +30,24 @@ export default class Navbar extends Component {
                     <input type="text" placeholder="Search.." name="search"/>
                     <button type="submit"><BsSearch/></button>
                 </form>
-                <li className = "nav-item">
+                <li className = "Nav-item">
                     <a href = "#">
                         <IoIosListBox/>
                         Kiểm tra đơn hàng
                     </a>
                 </li>
-                <li className = "nav-item">
+                <li className = "Nav-item">
                     <a href = "#">
                         <GiAutoRepair/>
                         Kiểm tra bảo hành
                     </a>
                 </li>
-                <li className ="nav-item" id = "login">
+                <li className ="Nav-item" id = "login">
                     <a href ="#">
                         <BsFillPersonFill/> 
                     </a>
                 </li>
-                <li className ="nav-item" id= "cart">
+                <li className ="Nav-item" id= "cart">
                     <a href ="#">
                         <FaShoppingCart/> 
                     </a>

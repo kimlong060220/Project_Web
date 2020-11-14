@@ -6,13 +6,15 @@
     background-color: #333;
     width: 100%;
     justify-content: center;
+    margin-bottom: 0px;
+    padding-left: 0px;
 }
-.nav-list .nav-item{
+.nav-list .Nav-item{
     text-align: center;   
     flex: 1; 
     align-self: center;
 }
-.nav-list .nav-item a {
+.nav-list .Nav-item a {
     display: inline-block;
     color: white;
     text-align: center;
@@ -21,7 +23,7 @@
 
 }
 
-.nav-item:hover{
+.Nav-item:hover{
     background-color:blue;
 }
 .nav-list form {

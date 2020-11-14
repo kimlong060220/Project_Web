@@ -1,8 +1,6 @@
 .navbar {
-    width: 90%;
+    width: 100%;
     font-weight: bold;
-    margin-right: auto;
-    margin-left: auto;
 }
 .DropDown {
     position: absolute;
@@ -45,7 +43,7 @@ img.loaded {
     width:250px;
 }
 
-.nav-item > a{
-    /* text-decoration: none; */
+/* .nav-item > a{
+    text-decoration: none;
 
-}
+} */

@@ -4,6 +4,7 @@
     width: 100%;
     bottom: 10px;
     position: absolute;
+    justify-content: center;
 }
 .footer-item{
     width: 20%;
