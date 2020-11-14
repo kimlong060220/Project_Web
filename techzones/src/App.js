@@ -1,20 +1,20 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import TopHeader from './Component/TopHeader'
 import {Component} from 'react'
-import BottomHeader from './Component/BottomHeader';
-import Footer from './Component/Footer';
-import {BrowserRouter as Router,Route, link } from "react-router-dom";
+import {BrowserRouter as Router,Route, link, Switch } from "react-router-dom";
+import Home from './Page/Home/Home'
+import Login from './Page/Login/Login'
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className="App">
-          <TopHeader/>
-          <BottomHeader />  
-          <Footer/>
-        </div>
+    <Router>
+      <div className='App'>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/Login" component={Login} />
+        </Switch>
 
+      </div>
     </Router>
     );
   }

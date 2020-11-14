@@ -12,45 +12,46 @@ export default class Navbar extends Component {
         <nav className = "topnav">
             <ul className = "nav-list">
                 <li className = "Nav-item">
-                    <a href = "#">
-                        Home
-                    </a>
+                    <Link to="/">
+                    Home
+                    </Link>  
                 </li>
                 <li className = "Nav-item">
-                    <a href = "#">
-                        Tin tức
-                    </a>
+                    <Link to="/Login">
+                    Tin Tức
+                    </Link> 
                 </li>
                 <li className = "Nav-item">
-                    <a href = "#">
-                        Thương hiệu
-                    </a>
+                    <Link>
+                    Thương hiệu
+                    </Link>
                 </li>
                 <form action="/action_page.php">
                     <input type="text" placeholder="Search.." name="search"/>
                     <button type="submit"><BsSearch/></button>
                 </form>
                 <li className = "Nav-item">
-                    <a href = "#">
-                        <IoIosListBox/>
+                    <Link>
+                    <IoIosListBox/>
                         Kiểm tra đơn hàng
-                    </a>
+                    </Link>                        
                 </li>
                 <li className = "Nav-item">
-                    <a href = "#">
+                    <Link>
                         <GiAutoRepair/>
                         Kiểm tra bảo hành
-                    </a>
+                    </Link>
+                        
                 </li>
                 <li className ="Nav-item" id = "login">
-                    <a href ="#">
-                        <BsFillPersonFill/> 
-                    </a>
+                    <Link to="/Login">
+                    <BsFillPersonFill/>
+                    </Link>                         
                 </li>
                 <li className ="Nav-item" id= "cart">
-                    <a href ="#">
-                        <FaShoppingCart/> 
-                    </a>
+                    <Link>
+                    <FaShoppingCart/> 
+                    </Link>
                 </li>
                 
             </ul>
