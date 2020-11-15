@@ -27,9 +27,9 @@
     display: block;
     /* float: left; */
 }
-.nav-item {
-    /* position: relative; */
-}
+/* .nav-item {
+    position: relative;
+} */
 .DropDown > li > ul > li{
     margin: 10px 0;
     list-style-type: none;

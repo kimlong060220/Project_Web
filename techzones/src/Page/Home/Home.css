@@ -3,17 +3,10 @@
   img {
     border-radius: 0.5rem;
   }
-  /* img.small {
-    max-width: 5rem;
-    width: 100%;
-  } */
   img.medium {
-    max-width: 29rem;
+    max-width: 25rem;
     width: 100%;
   }
-  /* img.large {
-    width: 100%;
-  } */
   
   /* Card */
   .card {
@@ -25,17 +18,20 @@
   .card-body {
     padding: 1rem;
   }
+  .card-body h2 {
+      font-size: 1rem;
+  }
   .card-body > * {
     margin-bottom: 0.5rem;
   }
   .price {
-    font-size: 2rem;
+    font-size: 1rem;
   }
   /* Rating */
-  /* .rating span {
+  .rating span  {
     color: #f0c040;
     margin: 0.1rem;
   }
   .rating span:last-child {
     color: #404040;
-  } */
+  }
