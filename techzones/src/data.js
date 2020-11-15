@@ -30,6 +30,27 @@ const data = {
             numReviews: 10,
             description:'high quality product',
         },
+        {
+            _id:'4',
+            name:'HuaWei watch',
+            image:'/images/p3.jpg',
+            price: 220,
+            brand:'HuaWei',
+            rating: 4.5,
+            numReviews: 10,
+            description:'high quality product',
+        },
+        {
+            _id:'5',
+            name:'HuaWei watch',
+            image:'/images/p3.jpg',
+            price: 220,
+            brand:'HuaWei',
+            rating: 4.5,
+            numReviews: 10,
+            description:'high quality product',
+        },
 
     ]
 }
+export default data;

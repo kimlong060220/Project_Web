@@ -21,6 +21,7 @@
 }
 .nav-item:hover .DropDown {
     display: flex;
+    z-index: 1;
 }
 .DropDown > li{
     display: block;
