@@ -49,7 +49,7 @@ export default class Navbar extends Component {
                     </Link>                         
                 </li>
                 <li className ="Nav-item" id= "cart">
-                    <Link>
+                    <Link to="/Cart">
                     <FaShoppingCart/> 
                     </Link>
                 </li>
