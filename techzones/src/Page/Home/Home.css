@@ -16,7 +16,10 @@
     margin: 1rem;
   }
   .card-body {
-    padding: 1rem;
+    padding: 1rem ;
+  }
+  .card:hover {
+    border: 0.2rem  #c0c0c0 solid;
   }
   .card-body h2 {
       font-size: 1rem;
@@ -32,6 +35,6 @@
     color: #f0c040;
     margin: 0.1rem;
   }
-  .rating span:last-child {
+  /* .rating span:last-child {
     color: #404040;
-  }
+  } */

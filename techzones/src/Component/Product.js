@@ -1,4 +1,5 @@
 import { React, Component } from "react";
+import Rating from "./Rating";
 class Product extends Component {
   constructor(props) {
     super(props);
@@ -15,11 +16,7 @@ class Product extends Component {
             <a href={`/product/${product._id}`}>
               <h2>{product.name}</h2>
             </a>
-            <div className="rating">
-              <span>
-                <i className="fa fa-star"></i>
-              </span>
-            </div>
+            <Rating rating={product.rating} numReviews={product.numReviews}></Rating>
             <div className="price">${product.price}</div>
           </div>
         </div>
