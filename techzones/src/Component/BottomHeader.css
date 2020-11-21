@@ -1,5 +1,5 @@
 .BottomHeader {
-    display:block;
+    display:none;
     width: 100%;
 }
 .navbar {
@@ -48,6 +48,11 @@ img.loaded {
     width:250px;
 }
 
+@media only screen and (min-width: 850px){
+    .BottomHeader {
+        display:block;
+    }
+}
 /* .nav-item > a{
     text-decoration: none;
 

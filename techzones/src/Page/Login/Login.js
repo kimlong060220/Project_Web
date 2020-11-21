@@ -36,7 +36,7 @@ class Login extends Component {
                     <span className="Sign-Up"><Link>Sign Up</Link></span>
                     Forgot <a href="#">password?</a>
                 </p>
-                <hr class="my-4" />
+                <hr className="my-4" />
                 </div>
                 
             </form>

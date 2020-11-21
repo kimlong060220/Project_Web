@@ -13,7 +13,7 @@ class BottomHeader extends Component {
                   <span className="ColumnTitle">Đồng hồ thông minh</span>
                   <img
                     alt="Đồng hồ thông minh"
-                    class="loaded"
+                    className="loaded"
                     src="https://techzones.vn/Data/Sites/1/media/cover-menu/thiet-bi-deo-tay/smartwatch.png"
                     data-was-processed="true"
                   ></img>{" "}
@@ -28,7 +28,7 @@ class BottomHeader extends Component {
                   <div className="subimg">
                     <img
                       alt="Vòng đeo tay"
-                      class="loaded"
+                      className="loaded"
                       src="https://techzones.vn/Data/Sites/1/media/cover-menu/thiet-bi-deo-tay/vongdeotay.png"
                       data-was-processed="true"
                     ></img>
@@ -44,7 +44,7 @@ class BottomHeader extends Component {
                   <div className="subimg">
                     <img
                       alt="Hybrid watch"
-                      class="loaded"
+                      className="loaded"
                       src="https://techzones.vn/Data/Sites/1/media/cover-menu/thiet-bi-deo-tay/hybridwatch.png"
                       data-was-processed="true"
                     ></img>
@@ -62,7 +62,7 @@ class BottomHeader extends Component {
               <ul className="DropDown">
                 <li className="Column">
                   <span className="ColumnTitle">Tai nghe</span>
-                  <img alt="Tai nghe" class="loaded" src="https://techzones.vn/Data/Sites/1/media/cover-menu/am-thanh/tainghe.png" data-was-processed="true" />
+                  <img alt="Tai nghe" src="https://techzones.vn/Data/Sites/1/media/cover-menu/am-thanh/tainghe.png" data-was-processed="true" />
                   <ul className="ColumnSubMenu">
                     <li>Tai nghe In-ear</li>
                     <li>Tai nghe Full-Size</li>
@@ -74,7 +74,7 @@ class BottomHeader extends Component {
                 <li className="Column">
                   <span className="ColumnTitle">Loa</span>
                   <div className="subimg">
-                  <img alt="Loa" class="loaded" src="https://techzones.vn/Data/Sites/1/media/cover-menu/am-thanh/loaat.png" data-was-processed="true"/>
+                  <img alt="Loa" src="https://techzones.vn/Data/Sites/1/media/cover-menu/am-thanh/loaat.png" data-was-processed="true"/>
                   </div>
                   <ul className="ColumnSubMenu">
                     <li>Loa Di động</li>
@@ -86,7 +86,7 @@ class BottomHeader extends Component {
                 <li className="Column">
                   <span className="ColumnTitle">Máy Nghe Nhạc</span>
                   <div className="subimg">
-                  <img alt="Máy nghe nhạc" class="loaded" src="https://techzones.vn/Data/Sites/1/media/cover-menu/am-thanh/maynghenhac.png" data-was-processed="true"/>
+                  <img alt="Máy nghe nhạc" src="https://techzones.vn/Data/Sites/1/media/cover-menu/am-thanh/maynghenhac.png" data-was-processed="true"/>
                   </div>
                 </li>
                 </ul>
@@ -96,7 +96,7 @@ class BottomHeader extends Component {
               <ul className="DropDown">
                 <li className="Column">
                   <span className="ColumnTitle">Mainboard</span>
-                  <img alt="Bo mạc chủ , mainboard" class="loaded" src="https://techzones.vn/Data/Sites/1/media/cover-menu/may-tinh/mainboard.png" data-was-processed="true"/>
+                  <img alt="Bo mạc chủ , mainboard" src="https://techzones.vn/Data/Sites/1/media/cover-menu/may-tinh/mainboard.png" data-was-processed="true"/>
                   <ul className="ColumnSubMenu">
                     <li>Mainboard Gigabyte</li>
                     <li>Mainboard Asus</li>
@@ -106,7 +106,7 @@ class BottomHeader extends Component {
                 <li className="Column">
                   <span className="ColumnTitle">RAM</span>
                   <div className="subimg">
-                  <img alt="Ram máy tính" data-src="https://techzones.vn/Data/Sites/1/media/cover-menu/may-tinh/ram.png" class="loaded" src="https://techzones.vn/Data/Sites/1/media/cover-menu/may-tinh/ram.png" data-was-processed="true"/>
+                  <img alt="Ram máy tính" data-src="https://techzones.vn/Data/Sites/1/media/cover-menu/may-tinh/ram.png" src="https://techzones.vn/Data/Sites/1/media/cover-menu/may-tinh/ram.png" data-was-processed="true"/>
                   </div>
                   <ul className="ColumnSubMenu">
                     <li>RAM Kingmax</li>
@@ -117,7 +117,7 @@ class BottomHeader extends Component {
                 <li className="Column">
                   <span className="ColumnTitle">Tản Nhiệt PC</span>
                   <div className="subimg">
-                  <img alt="Tản nhiệt" data-src="https://techzones.vn/Data/Sites/1/media/cover-menu/may-tinh/tannhiet.png" class="loaded" src="https://techzones.vn/Data/Sites/1/media/cover-menu/may-tinh/tannhiet.png" data-was-processed="true"/>
+                  <img alt="Tản nhiệt" data-src="https://techzones.vn/Data/Sites/1/media/cover-menu/may-tinh/tannhiet.png" src="https://techzones.vn/Data/Sites/1/media/cover-menu/may-tinh/tannhiet.png" data-was-processed="true"/>
                   </div>
                   <ul className="ColumnSubMenu">
                     <li>Tản nhiệt khí</li>
