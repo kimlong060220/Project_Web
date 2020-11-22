@@ -1,27 +1,35 @@
-import { Component } from "react";
+import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TopHeader from "../../Component/TopHeader";
+import {useDispatch} from 'react-redux'
 import BottomHeader from "../../Component/BottomHeader";
-import Footer from "../../Component/Footer";
+import {signin} from '../../actions/userActions'
+// import Footer from "../../Component/Footer";
 import './Login.css'
 import { Link } from "react-router-dom";
-class Login extends Component {
-  render() {
+export default function Login() {
+    const [email,setEmail] = useState('');
+    const [password,setPassword] =useState('');
+    const dispatch = useDispatch(); 
+    const submitHandler = (e) => {
+      e.preventDefault();
+      dispatch(signin(email,password))
+    }
     return (
       <div className="Home">
         <TopHeader />
         <BottomHeader />
-        <form className="loginForm">
+        <form className="loginForm" onSubmit={submitHandler}>
               <div className="Sign-In">
               <h3>Sign In</h3>
               <div className="form-group">
                     <label>Email</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
+                    <input type="email" id="email" className="form-control" placeholder="Enter email" required onChange={(e) => setEmail(e.target.value)} />
                 </div>
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
+                    <input type="password" className="form-control" placeholder="Enter password" required onChange={(e) => setPassword(e.target.value)} />
                 </div>
 
                 <div className="form-group">
@@ -33,7 +41,7 @@ class Login extends Component {
 
                 <button type="submit" className="btn btn-primary btn-block">ĐĂNG NHẬP</button>
                 <p className="forgot-password text-right">
-                    <span className="Sign-Up"><Link>Sign Up</Link></span>
+                    <span className="Sign-Up"><Link to="/register">Sign Up</Link></span>
                     Forgot <a href="#">password?</a>
                 </p>
                 <hr className="my-4" />
@@ -42,7 +50,6 @@ class Login extends Component {
             </form>
       </div>
     );
-  }
 }
 
-export default Login;
+// export default Login;

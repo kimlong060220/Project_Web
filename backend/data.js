@@ -1,4 +1,18 @@
 const data = {
+    users: [
+        {
+            name:'Nghia',
+            email:'admin@gmail.com',
+            password:'1234',
+            isAdmin: true,
+        },
+        {
+            name:'Long',
+            email:'user@gmail.com',
+            password:'12345',
+            isAdmin:false,
+        }
+    ],
     products:[
         {
             _id:'1',
@@ -53,4 +67,5 @@ const data = {
 
     ]
 }
-export default data;
+// export default data;
+module.exports = data;
