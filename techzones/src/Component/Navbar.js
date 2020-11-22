@@ -6,8 +6,10 @@ import {IoIosListBox} from 'react-icons/io'
 import {GiAutoRepair} from 'react-icons/gi'
 import {BsFillPersonFill} from 'react-icons/bs';
 import {FaShoppingCart} from "react-icons/fa";
-export default class Navbar extends Component {
-  render() {
+import { useSelector } from "react-redux";
+function Navbar(){
+    const userSignin = useSelector((state)=>state.userSignin)
+    const {userInfo} = userSignin;
     return (
         <nav className = "topnav">
             <ul className = "nav-list">
@@ -44,9 +46,17 @@ export default class Navbar extends Component {
                         
                 </li>
                 <li className ="Nav-item" id = "login">
-                    <Link to="/Login">
-                    <BsFillPersonFill/>
-                    </Link>                         
+                    {console.log(userInfo)}
+                    {
+                        userInfo ? (
+                            <Link to="#" >Hello: {userInfo.name}</Link>
+                        ) : (
+                            <Link to="/Login">
+                                <BsFillPersonFill/>
+                            </Link>     
+                        )
+                    }
+                                        
                 </li>
                 <li className ="Nav-item" id= "cart">
                     <Link to="/Cart">
@@ -58,5 +68,5 @@ export default class Navbar extends Component {
 
         </nav>
     );
-  }
 }
+export default Navbar;

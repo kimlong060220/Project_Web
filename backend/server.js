@@ -21,7 +21,7 @@ db.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err); // eslint-disable-line no-console
   });
-db.sync({force: true})
+db.sync({force: false})
 app.use('/api/users',userRouter)
 
 app.get('/api/products',(req, res)=>{
@@ -31,6 +31,9 @@ app.get('/api/products',(req, res)=>{
 app.get('/',(req,res) => {
     res.send('Server is ready');
 });
+app.use((err,req,res,next) => {
+    res.status(500).send({message: err.message});
+})
 
 app.listen(port,() =>{
     console.log(`Server listening at http://localhost:${port}`)
