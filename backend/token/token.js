@@ -11,4 +11,4 @@ function generateToken(user) {
         expiresIn: '10d'
     })
 }
-module.exports = generateToken;
+module.exports.generateToken = generateToken;

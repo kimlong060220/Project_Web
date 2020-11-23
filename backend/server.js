@@ -3,7 +3,7 @@ const cors = require('cors')
 const data = require('./data');
 const userRouter = require('./routers/userRouter')
 
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
 const app = express();
 app.use(cors())
 app.use(express.json());

@@ -1,7 +1,7 @@
 const express = require('express')
 const data = require ('../data')
 const User = require('../models/userModels')
-const generateToken  = require('../token/token')
+const generate  = require('../token/token')
 const userRouter = express.Router();
 const expressAsyncHandler = require('express-async-handler')
 // console.log(User)
@@ -19,12 +19,12 @@ userRouter.post('/signin',async (req,res) => {
     // console.log(user)
     if(user) {
         if(req.body.password == user.password){
-            res.send({
+            res.status(200).send({
                 id:user.id,
                 name: user.name,
                 email:user.email,
                 isAdmin: user.isAdmin,
-                token: "generateToken(user)",
+                token: generate.generateToken(user),
             })
             return;
         }  
