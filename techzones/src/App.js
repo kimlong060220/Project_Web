@@ -5,6 +5,7 @@ import {BrowserRouter as Router,Route, Switch } from "react-router-dom";
 import Home from './Page/Home/Home'
 import Login from './Page/Login/Login'
 import Cart from './Page/Cart/Cart'
+
 class App extends Component {
   render() {
     return (

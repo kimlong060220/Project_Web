@@ -1,71 +1,87 @@
-const data = {
-    users: [
-        {
-            name:'Nghia',
-            email:'admin@gmail.com',
-            password:'1234',
-            isAdmin: true,
-        },
-        {
-            name:'Long',
-            email:'user@gmail.com',
-            password:'12345',
-            isAdmin:false,
-        }
-    ],
-    products:[
-        {
-            _id:'1',
-            name:'SamSung watch',
-            image:'/images/p1.jpg',
-            price: 220,
-            brand:'SamSung',
-            rating: 4.5,
-            numReviews: 10,
-            description:'high quality product',
-        },
-        {
-            _id:'2',
-            name:'Apple watch',
-            image:'/images/p2.jpg',
-            price: 120,
-            brand:'Apple',
-            rating: 4.5,
-            numReviews: 10,
-            description:'high quality product',
-        },
-        {
-            _id:'3',
-            name:'HuaWei watch',
-            image:'/images/p3.jpg',
-            price: 220,
-            brand:'HuaWei',
-            rating: 4.5,
-            numReviews: 10,
-            description:'high quality product',
-        },
-        {
-            _id:'4',
-            name:'HuaWei watch',
-            image:'/images/p3.jpg',
-            price: 220,
-            brand:'HuaWei',
-            rating: 4.5,
-            numReviews: 10,
-            description:'high quality product',
-        },
-        {
-            _id:'5',
-            name:'HuaWei watch',
-            image:'/images/p3.jpg',
-            price: 220,
-            brand:'HuaWei',
-            rating: 4.5,
-            numReviews: 10,
-            description:'high quality product',
-        },
+import bcrypt from 'bcryptjs';
 
-    ]
-}
-// export default data;
-module.exports = data;
+const data = {
+  users: [
+    {
+      name: 'Nghia',
+      email: 'admin@example.com',
+      password: bcrypt.hashSync('1234', 8),
+      isAdmin: true,
+    },
+    {
+      name: 'Long',
+      email: 'user@example.com',
+      password: bcrypt.hashSync('1234', 8),
+      isAdmin: false,
+    },
+  ],
+  products: [
+    {
+      name: 'Garmin Fenix',
+      category: 'watch',
+      image: '/images/p1.jpg',
+      price: 120,
+      countInStock: 10,
+      brand: 'Garmin',
+      rating: 4.5,
+      numReviews: 10,
+      description: 'Đồng hồ thông minh',
+    },
+    {
+      name: 'Garmin Fenix 2',
+      category: 'watch',
+      image: '/images/p2.jpg',
+      price: 100,
+      countInStock: 20,
+      brand: 'Garmin',
+      rating: 4.0,
+      numReviews: 10,
+      description: 'Đồng hồ thông minh',
+    },
+    {
+      name: 'Máy tính Fujusu',
+      category: 'computer',
+      image: '/images/p3.jpg',
+      price: 220,
+      countInStock: 0,
+      brand: 'Dell',
+      rating: 4.8,
+      numReviews: 17,
+      description: 'máy tính dell',
+    },
+    {
+      name: 'Màn Lenovo',
+      category: 'Screen',
+      image: '/images/p4.jpg',
+      price: 78,
+      countInStock: 15,
+      brand: 'Lenovo',
+      rating: 4.5,
+      numReviews: 14,
+      description: 'màn hình zin',
+    },
+    {
+      name: 'Máy tính Dell pro',
+      category: 'computer',
+      image: '/images/p5.jpg',
+      price: 65,
+      countInStock: 5,
+      brand: 'Dell',
+      rating: 4.5,
+      numReviews: 10,
+      description: 'high quality product',
+    },
+    {
+      name: 'Máy tính dell XP',
+      category: 'computer',
+      image: '/images/p6.jpg',
+      price: 139,
+      countInStock: 12,
+      brand: 'Dell',
+      rating: 4.5,
+      numReviews: 15,
+      description: 'máy tính',
+    },
+  ],
+};
+export default data;

@@ -1,40 +1,39 @@
-const express = require('express') 
-const cors = require('cors')
-const data = require('./data');
-const userRouter = require('./routers/userRouter')
+import express from 'express';
+import mongoose from 'mongoose';
+import productRouter from './routers/productRouter.js';
+import userRouter from './routers/userRouter.js';
+import orderRouter from './routers/orderRouter.js';
+import cors from 'cors'
 
-const dotenv = require('dotenv');
+// import uploadRouter from './routers/uploadRouter.js';
+
+
 const app = express();
 app.use(cors())
 app.use(express.json());
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }));
+
+
+mongoose.connect('mongodb+srv://Nghia:Tanlenghia06032000@cluster0.w36ht.mongodb.net/Cluster0?retryWrites=true&w=majority', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+});
+
+app.use('/api/users', userRouter);
+app.use('/api/products', productRouter);
+app.use('/api/orders', orderRouter);
+
+
+app.get('/', (req, res) => {
+  res.send('Server is ready');
+});
+
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
+});
 
 const port = process.env.PORT || 5000;
-const db = require('./config/database')
-
-dotenv.config();
-
-db.authenticate()
-  .then(() => {
-    console.log('Connection to DB has been established successfully.'); // eslint-disable-line no-console
-  })
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err); // eslint-disable-line no-console
-  });
-db.sync({force: false})
-app.use('/api/users',userRouter)
-
-app.get('/api/products',(req, res)=>{
-    res.send(data.products)
-})
-
-app.get('/',(req,res) => {
-    res.send('Server is ready');
+app.listen(port, () => {
+  console.log(`Serve at http://localhost:${port}`);
 });
-app.use((err,req,res,next) => {
-    res.status(500).send({message: err.message});
-})
-
-app.listen(port,() =>{
-    console.log(`Server listening at http://localhost:${port}`)
-})
