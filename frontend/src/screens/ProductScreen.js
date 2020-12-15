@@ -5,13 +5,28 @@ import { detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';
+import './ProductScreen.css'
 
+var item = [
+  ['1', '2'],
+  ['2', '3'],
+  ['3', '4']
+]
 export default function ProductScreen(props) {
   const dispatch = useDispatch();
   const productId = props.match.params.id;
   const [qty, setQty] = useState(1);
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
+  const table = [
+    {col1:"mat kinh" ,  col2:"saphia"},
+    {col1:"size" , col2: "44" }
+  ]
+  const description = [
+    {title : "Hiệu suất vượt trội"  , des : "Trang bị bộ vi xử lý Intel thế hệ thứ 10, IdeaPad S145 được thiết kế để giúp bạn hoàn thành công việc tốt nhất. Nó cũng đi kèm với một loạt các tùy chọn lưu trữ an toàn, bao gồm một SSD lai với ổ đĩa cứng, đảm bảo thời gian phản hồi thậm chí còn nhanh hơn."},
+    {title : "Hiệu suất vượt trội"  , des : "Trang bị bộ vi xử lý Intel thế hệ thứ 10, IdeaPad S145 được thiết kế để giúp bạn hoàn thành công việc tốt nhất. Nó cũng đi kèm với một loạt các tùy chọn lưu trữ an toàn, bao gồm một SSD lai với ổ đĩa cứng, đảm bảo thời gian phản hồi thậm chí còn nhanh hơn."},
+    {title : "Hiệu suất vượt trội"  , des : "Trang bị bộ vi xử lý Intel thế hệ thứ 10, IdeaPad S145 được thiết kế để giúp bạn hoàn thành công việc tốt nhất. Nó cũng đi kèm với một loạt các tùy chọn lưu trữ an toàn, bao gồm một SSD lai với ổ đĩa cứng, đảm bảo thời gian phản hồi thậm chí còn nhanh hơn."}
+  ]
 
   useEffect(() => {
     dispatch(detailsProduct(productId));
@@ -19,16 +34,32 @@ export default function ProductScreen(props) {
   const addToCartHandler = () => {
     props.history.push(`/cart/${productId}?qty=${qty}`);
   };
+  const renderPlayer = (table , index) => {
+    return(
+      <tr key = {index}>
+        <td>{table.col1}</td>
+        <td>{table.col2}</td>
+      </tr>
+    )
+  }
+  const renderDescription=( description, index) => {
+    return(
+      <div>
+      <h2>{description.title}</h2>
+      <p>{description.des}</p>
+      </div>
+    )
+  }
   return (
-    <div>
+    <div className = "product-container">
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? ( 
        <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <div>
+        <div >
           <Link to="/">Back to result</Link>
-          <div className="row top">
+          <div className="row">
             <div className="col-2">
               <img
                 className="large"
@@ -40,6 +71,7 @@ export default function ProductScreen(props) {
               <ul>
                 <li>
                   <h1>{product.name}</h1>
+                  <p>Thương hiệu:{product.brand}</p>
                 </li>
                 <li>
                   <Rating
@@ -47,32 +79,24 @@ export default function ProductScreen(props) {
                     numReviews={product.numReviews}
                   ></Rating>
                 </li>
-                <li>Price : ${product.price}</li>
+                <li>
+                  <div className = "price_product">
+                    {product.price}đ
+                  </div>
+                </li>
                 <li>
                   Description:
                   <p>{product.description}</p>
                 </li>
-              </ul>
-            </div>
-            <div className="col-1">
-              <div className="card card-body">
-                <ul>
                   <li>
-                    Seller{' '}
-                    <h2>
-                      {/* <Link to={`/seller/${product._id}`}>
-                        {product.seller.seller.name}
-                      </Link> */}
-                    </h2>
-                    <Rating
-                      rating={product.rating}
-                      numReviews={product.numReviews}
-                    ></Rating>
-                  </li>
-                  <li>
-                    <div className="row">
-                      <div>Price</div>
-                      <div className="price">${product.price}</div>
+                    <div className = "color">
+                      <p>Màu sắc:
+                      <button class="button"></button>
+                      <button class="button button2"></button>
+                      <button class="button button3"></button>
+                      <button class="button button5"></button>
+                      </p>
+                     
                     </div>
                   </li>
                   <li>
@@ -118,10 +142,44 @@ export default function ProductScreen(props) {
                       </li>
                     </>
                   )}
-                </ul>
-              </div>
+              </ul>
+            </div>
+            <div className="col-1">
+              <div className = "more">
+                <div className = "title">
+                  <h2>Tư vấn mua hàng</h2>
+                </div>      
+                <ul>
+                  <li>
+                    Freeship với đơn hàng trên 600.000đ
+                  </li>
+                  <li>
+                    Giao hàng ngay (Nội thành TP.HCM)
+                  </li>
+                  <li>
+                    Giao trong vòng 2 đến 3 ngày làm việc (Toàn quốc) 
+                  </li>
+                </ul>          
+
+              </div>                    
             </div>
           </div>
+          <div className ='row'>
+            <div className = 'col-3'>
+              {description.map(renderDescription)}
+            </div>
+            <div className = 'col-1'>
+              <h1>Thông số Kĩ thuật</h1>
+              <table>
+                <tbody>
+                  {table.map(renderPlayer)}
+                </tbody>
+              </table>
+            </div>
+          </div>                        
+          <div className = "same_product">
+              <h1> Sản phầm cùng tầm giá</h1>
+          </div>                        
         </div>
       )} 
     </div>
