@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { signin } from '../actions/userActions';
 import MessageBox from '../components/MessageBox';
+import './Signin.css'
 
 export default function SigninScreen(props) {
   const [email, setEmail] = useState('');
@@ -13,7 +14,7 @@ export default function SigninScreen(props) {
     : '/';
 
   const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo, loading, error } = userSignin;
+  const { userInfo, error } = userSignin;
 
   const dispatch = useDispatch();
   const submitHandler = (e) => {
@@ -26,7 +27,7 @@ export default function SigninScreen(props) {
     }
   }, [props.history, redirect, userInfo]);
   return (
-    <div>
+    <div className="login-background">
       <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Đăng Nhập</h1>
@@ -54,8 +55,8 @@ export default function SigninScreen(props) {
         </div>
         <div>
           <label />
-          <button className="primary" type="submit">
-            Đăng Nhập
+          <button className="login-button" type="submit">
+            ĐĂNG NHẬP
           </button>
         </div>
         <div>

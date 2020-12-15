@@ -26,6 +26,19 @@ const data = {
       rating: 4.5,
       numReviews: 10,
       description: 'Đồng hồ thông minh',
+      productdetails: [
+        {
+          col1: 'mặt kính',
+          col2: 'saphire'
+        },
+        {
+          col1: 'size',
+          col2: '44'
+        }
+      ],
+      descrip: [
+        {title : "Hiệu suất vượt trội"  , des : "Trang bị bộ vi xử lý Intel thế hệ thứ 10, IdeaPad S145 được thiết kế để giúp bạn hoàn thành công việc tốt nhất. Nó cũng đi kèm với một loạt các tùy chọn lưu trữ an toàn, bao gồm một SSD lai với ổ đĩa cứng, đảm bảo thời gian phản hồi thậm chí còn nhanh hơn."},
+      ]
     },
     {
       name: 'Garmin Fenix 2',
