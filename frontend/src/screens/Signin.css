@@ -1,0 +1,14 @@
+.login-button {
+    background-color: #75baf1;
+    color: white;
+}
+.form {
+    border: 1px solid grey;
+    border-radius:1rem;
+    background-color: white;
+
+}
+.login-background{
+    height: 100%;
+    padding:2rem 2rem;
+}

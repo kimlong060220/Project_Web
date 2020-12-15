@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../actions/cartActions';
 import MessageBox from '../components/MessageBox';
+import PaymentMethodScreen from './PaymentMethodScreen';
 import ShippingAddressScreen from './ShippingAddressScreen';
 
 export default function CartScreen(props) {
@@ -20,19 +21,17 @@ export default function CartScreen(props) {
   }, [dispatch, productId, qty]);
 
   const removeFromCartHandler = (id) => {
-    // delete action
     dispatch(removeFromCart(id));
   };
-
-  const checkoutHandler = () => {
-    props.history.push('/signin?redirect=shipping');
+  console.log(cart)
+  const checkpayment = () => {
+    props.history.push('/signin?redirect=placeorder');
   };
   return (
     <>
     <div className="row top">
       <div className="col-1">
         <h1>Shopping Cart</h1>
-        {error && <MessageBox variant="danger">{error}</MessageBox>}
         {cartItems.length === 0 ? (
           <MessageBox>
             Cart is empty. <Link to="/">Go Shopping</Link>
@@ -68,7 +67,7 @@ export default function CartScreen(props) {
                       ))}
                     </select>
                   </div>
-                  <div>${item.price}</div>
+                  <div>${item.price * item.qty}</div>
                   <div>
                     <button
                       type="button"
@@ -82,9 +81,10 @@ export default function CartScreen(props) {
             ))}
           </ul>
         )}
+        <PaymentMethodScreen></PaymentMethodScreen>
       </div>
       <div className="col-1">
-        <ShippingAddressScreen></ShippingAddressScreen>
+        <ShippingAddressScreen history={props.history}></ShippingAddressScreen>
       </div>
     </div>
     <div className="col-1">
@@ -99,11 +99,11 @@ export default function CartScreen(props) {
         <li>
           <button
             type="button"
-            onClick={checkoutHandler}
+            onClick={checkpayment}
             className="primary block"
             disabled={cartItems.length === 0}
           >
-            Proceed to Checkout
+            Thanh Toán
           </button>
         </li>
       </ul>

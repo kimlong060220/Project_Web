@@ -81,14 +81,14 @@ export default function RegisterScreen(props) {
         <div>
           <label />
           <button className="primary" type="submit">
-            Register
+            ĐĂNG KÍ
           </button>
         </div>
         <div>
           <label />
           <div>
             Bạn đã có tài khoản?{' '}
-            <Link to={`/signin?redirect=${redirect}`}>Sign-In</Link>
+            <Link to={`/signin?redirect=${redirect}`}>Đăng Nhập</Link>
           </div>
         </div>
       </form>

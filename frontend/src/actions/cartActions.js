@@ -8,19 +8,7 @@ import {
 
 export const addToCart = (productId, qty) => async (dispatch, getState) => {
   const { data } = await Axios.get(`/api/products/${productId}`);
-  const {
-    cart: { cartItems },
-  } = getState();
-  // if (cartItems.length > 0 && data._id !== cartItems[0]._id) {
-  //   console.log(data._id);
-  //   console.log(cartItems[0]._id)
-  //   dispatch({
-
-  //     type: CART_ADD_ITEM_FAIL,
-  //     payload: `Can't Add To Cart. Buy only from ${cartItems[0].name} in this order`,
-  //   });
-  // } else {
-    dispatch({
+  dispatch({
       type: CART_ADD_ITEM,
       payload: {
         name: data.name,
@@ -37,8 +25,6 @@ export const addToCart = (productId, qty) => async (dispatch, getState) => {
       JSON.stringify(getState().cart.cartItems)
     );
   }
-// };
-
 export const removeFromCart = (productId) => (dispatch, getState) => {
   dispatch({ type: CART_REMOVE_ITEM, payload: productId });
   localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
@@ -50,4 +36,5 @@ export const saveShippingAddress = (data) => (dispatch) => {
 };
 export const savePaymentMethod = (data) => (dispatch) => {
   dispatch({ type: CART_SAVE_PAYMENT_METHOD, payload: data });
+  localStorage.setItem('paymentMehod', JSON.stringify(data));
 };
