@@ -23,7 +23,6 @@ import {
   userListReducer,
   userRegisterReducer,
   userSigninReducer,
-  userTopSellerListReducer,
   userUpdateProfileReducer,
   userUpdateReducer,
 } from './reducers/userReducers';
@@ -41,11 +40,11 @@ const initialState = {
     shippingAddress: localStorage.getItem('shippingAddress')
       ? JSON.parse(localStorage.getItem('shippingAddress'))
       : {},
-    paymentMethod: 'PayPal',
+    paymentMethod: 'VN-pay',
   },
 };
 const reducer = combineReducers({
-  productList: productListReducer,
+  productList: productListReducer, 
   productDetails: productDetailsReducer,
   cart: cartReducer,
   userSignin: userSigninReducer,

@@ -1,36 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveShippingAddress } from '../actions/cartActions';
 
 export default function ShippingAddressScreen(props) {
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
-  // if (!userInfo) {
-  //   props.history.push('/signin');
-  // }
+  
   const [fullName, setFullName] = useState(shippingAddress.fullName);
   const [address, setAddress] = useState(shippingAddress.address);
   const [city, setCity] = useState(shippingAddress.city);
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
   const [country, setCountry] = useState(shippingAddress.country);
   const dispatch = useDispatch();
-  const submitHandler = (e) => {
-    e.preventDefault();
+  useEffect(() => {
     dispatch(
       saveShippingAddress({ fullName, address, city, postalCode, country })
     );
-    props.history.push('/payment');
-  };
+    console.log(cart)
+  },[dispatch,fullName,address,city,postalCode,country])
+  
   return (
     <div>
-      <form className="form" onSubmit={submitHandler}>
+      <form className="form" >
         <div>
           <h1>Shipping Address</h1>
         </div>
         <div>
-          <label htmlFor="fullName">Full Name</label>
+          <label htmlFor="fullName">Họ tên</label>
           <input
             type="text"
             id="fullName"
@@ -41,7 +37,7 @@ export default function ShippingAddressScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="address">Address</label>
+          <label htmlFor="address">Địa chỉ</label>
           <input
             type="text"
             id="address"
@@ -52,7 +48,7 @@ export default function ShippingAddressScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="city">City</label>
+          <label htmlFor="city">Thành phố</label>
           <input
             type="text"
             id="city"
@@ -63,7 +59,7 @@ export default function ShippingAddressScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="postalCode">Postal Code</label>
+          <label htmlFor="postalCode">Mã Tỉnh</label>
           <input
             type="text"
             id="postalCode"
@@ -74,7 +70,7 @@ export default function ShippingAddressScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="country">Country</label>
+          <label htmlFor="country">Quốc gia</label>
           <input
             type="text"
             id="country"
@@ -84,12 +80,7 @@ export default function ShippingAddressScreen(props) {
             required
           ></input>
         </div>
-        <div>
-          <label />
-          <button className="primary" type="submit">
-            Continue
-          </button>
-        </div>
+        
       </form>
     </div>
   );

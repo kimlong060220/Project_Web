@@ -2,19 +2,14 @@ import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import data from '../data.js';
 import Product from '../models/productModel.js';
-import { isAdmin, isAuth, isSellerOrAdmin } from '../token/token.js';
+import { isAdmin, isAuth } from '../token/token.js';
 
 const productRouter = express.Router();
 
 productRouter.get(
   '/',
   expressAsyncHandler(async (req, res) => {
-    const seller = req.query.seller || '';
-    const sellerFilter = seller ? { seller } : {};
-    const products = await Product.find({ ...sellerFilter }).populate(
-      'seller',
-      'seller.name seller.logo'
-    );
+    const products = await Product.find()
     res.send(products);
   })
 );
@@ -32,12 +27,7 @@ productRouter.get(
   '/:id',
   expressAsyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id)
-    // .populate(
-    //   'seller',
-    //   'seller.name seller.logo seller.rating seller.numReviews'
-    // );
     if (product) {
-      // console.log(product);
       res.send(product);
     } else {
       res.status(404).send({ message: 'Product Not Found' });
@@ -48,7 +38,6 @@ productRouter.get(
 productRouter.post(
   '/',
   isAuth,
-  isSellerOrAdmin,
   expressAsyncHandler(async (req, res) => {
     const product = new Product({
       name: 'sample name ' + Date.now(),
@@ -69,7 +58,6 @@ productRouter.post(
 productRouter.put(
   '/:id',
   isAuth,
-  isSellerOrAdmin,
   expressAsyncHandler(async (req, res) => {
     const productId = req.params.id;
     const product = await Product.findById(productId);
