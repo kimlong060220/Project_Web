@@ -52,9 +52,7 @@ export default function ProductScreen(props) {
   }
   return (
     <div className = "product-container">
-      {loading ? (
-        <LoadingBox></LoadingBox>
-      ) : error ? ( 
+      { error ? ( 
        <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div >
