@@ -22,7 +22,7 @@ export default function Navbar() {
     <nav className="topnav">
       <ul className="nav-list">
         <li className="Nav-item">
-          <Link to="/">Home</Link>
+          <Link to="/"><img className="logo" src="/images/logo.png"></img></Link>
         </li>
         <li className="Nav-item">
           <Link to="/Login">Tin Tức</Link>
