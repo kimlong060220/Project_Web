@@ -3,8 +3,16 @@
     flex-wrap: wrap;
     width: 100%;
     bottom: 10px;
-    position: absolute;
+    /* position: absolute; */
     justify-content: center;
+    margin-top: 1rem;
+    padding: 1rem;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.footer-title {
+    font-size: 2rem;
 }
 .footer-item{
     width: 20%;

@@ -17,7 +17,7 @@ export default function ProductScreen(props) {
   const productId = props.match.params.id;
   const [qty, setQty] = useState(1);
   const productDetails = useSelector((state) => state.productDetails);
-  const { loading, error, product } = productDetails;
+  const { error, product } = productDetails;
   const table = [
     {col1:"mat kinh" ,  col2:"saphia"},
     {col1:"size" , col2: "44" }
@@ -56,7 +56,7 @@ export default function ProductScreen(props) {
        <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div >
-          <Link to="/">Back to result</Link>
+          {/* <Link to="/">Back to result</Link> */}
           <div className="row">
             <div className="col-2">
               <img

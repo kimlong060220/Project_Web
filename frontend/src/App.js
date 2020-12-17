@@ -4,7 +4,7 @@ import { signout } from './actions/userActions';
 import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
 import CartScreen from './screens/CartScreen';
-import HomeScreen from './screens/HomeScreen';
+import HomeScreen from './screens/HomePage';
 import ProfileScreen from './screens/ProfileScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import SigninScreen from './screens/SigninScreen';
@@ -15,6 +15,7 @@ import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import ProductScreen from './screens/ProductScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -22,7 +23,6 @@ function App() {
       <div>
           <Navbar/>
           <BottomHeader/>
-
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen} exact></Route>
           <Route path="/signin" component={SigninScreen}></Route>
@@ -37,6 +37,7 @@ function App() {
             component={ProfileScreen}
           ></PrivateRoute>
           <Route path="/" component={HomeScreen} exact></Route>
+          <Footer/>
       </div>
       
     </BrowserRouter>

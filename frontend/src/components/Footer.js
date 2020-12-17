@@ -1,8 +1,7 @@
-import { React, Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
-export default class Footer extends Component {
-  render() {
+export default function Footer() {
     return (
         <div className = "footer">
             <div className = "footer-item">
@@ -102,5 +101,4 @@ export default class Footer extends Component {
             </div>
         </div>
     );
-  }
 }
