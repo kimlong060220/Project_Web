@@ -3,102 +3,49 @@ import { Link } from "react-router-dom";
 import "./Footer.css";
 export default function Footer() {
     return (
-        <div className = "footer">
-            <div className = "footer-item">
-                <div className ="footer-title">
-                    Techzone
-                </div>
-                <nav className ="footer-link">
-                    <h4>
-                        <a href = "#" >Link1</a>
-                    </h4>
-                    <h4>
-                        <a href = "#" >Link2</a>
-                    </h4>
-                    <h4>
-                        <a href = "#" >Link3</a>
-                    </h4>
-                    <h4>
-                        <a href = "#" >Link4</a>
-                    </h4>
-                </nav>
-            </div>
-            <div className = "footer-item">
-                <div className ="footer-title">
-                    Về techzones
-                </div>
-                <nav className ="footer-link">
-                    <h4>
-                        <a href = "#" >Link1</a>
-                    </h4>
-                    <h4>
-                        <a href = "#" >Link2</a>
-                    </h4>
-                    <h4>
-                        <a href = "#" >Link3</a>
-                    </h4>
-                    <h4>
-                        <a href = "#" >Link4</a>
-                    </h4>
-                </nav>
-            </div>
-            <div className = "footer-item">
-            <div className ="footer-title">
-                    Hỗ trợ khách hàng
-                </div>
-                <nav className ="footer-link">
-                    <h4>
-                        <a href = "#" >Link1</a>
-                    </h4>
-                    <h4>
-                        <a href = "#" >Link2</a>
-                    </h4>
-                    <h4>
-                        <a href = "#" >Link3</a>
-                    </h4>
-                    <h4>
-                        <a href = "#" >Link4</a>
-                    </h4>
-                </nav>
-            </div>
-            <div className = "footer-item">
-                <div className ="footer-title">
-                    Phương thức thanh toán
-                </div>
-                <nav className ="footer-link">
-                    <h4>
-                        <a href = "#" >Link1</a>
-                    </h4>
-                    <h4>
-                        <a href = "#" >Link2</a>
-                    </h4>
-                    <h4>
-                        <a href = "#" >Link3</a>
-                    </h4>
-                    <h4>
-                        <a href = "#" >Link4</a>
-                    </h4>
-                </nav>
-            </div>
-            <div className = "footer-item">
-                <div className ="footer-title">
-                    Liên hệ
-                </div>
-                <nav className ="footer-link">
-                    <h4>
-                        <a href = "#" >tiền</a>
-                    </h4>
-                    <h4>
-                        <a href = "#" >Link2</a>
-                    </h4>
-                    <h4>
-                        <a href = "#" >Link3</a>
-                    </h4>
-                    <h4>
-                        <a href = "#" >Link4</a>
-                    </h4>
-                </nav>
-            </div>
-        </div>
+        <section id="footer">
+			<div class="container">
+				<div class="row text-center text-xs-center text-sm-left text-md-left">
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<img src="https://techzones.vn/Data/Sites/1/media/logo/logor.png" alt="Paris" width="140" height="30"></img>
+						<ul class="list-unstyled quick-links">
+							<li><a href="#"><i class="fa fa-angle-double-right"></i><b>Địa Chỉ :</b>GD3-UET-VNU</a></li>
+							<li><a href="#"><i class="fa fa-angle-double-right"></i><b>Hotline :</b>18008098</a></li>
+							<li><a href="#"><i class="fa fa-angle-double-right"></i><b>Hỗ trợ kĩ thuật :</b>18020909</a></li>
+							<li><a href="#"><i class="fa fa-angle-double-right"></i><b>Thời Gian Làm Việc :</b>10h-18h (Trừ chủ nhật)</a></li>
+							<li><a href=""><i class="fa fa-angle-double-right"></i><b>Xem Bản Đồ</b></a></li>
+						</ul>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<h5>Về TechZone</h5>
+						<ul class="list-unstyled quick-links">
+							<li><a href="#"><i class="fa fa-angle-double-right"></i>Điều Khoản Sử Dụng</a></li>
+							<li><a href="#"><i class="fa fa-angle-double-right"></i>Chính Sách Bảo Mật</a></li>
+							<li><a href="#"><i class="fa fa-angle-double-right"></i>Giới Thiệu</a></li>
+							<li><a href="#"><i class="fa fa-angle-double-right"></i>Tin Tức</a></li>
+							<li><a href="#"><i class="fa fa-angle-double-right"></i>Liên Hệ</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<h5>Hỗ Trợ Khách Hàng</h5>
+						<ul class="list-unstyled quick-links">
+							<li><a href="#"><i class="fa fa-angle-double-right"></i>Phương Thức Đặt Hàng</a></li>
+							<li><a href="#"><i class="fa fa-angle-double-right"></i>Phương Thức Giao Hàng</a></li>
+							<li><a href="#"><i class="fa fa-angle-double-right"></i>Phương Thức Thanh Toán</a></li>
+							<li><a href="#"><i class="fa fa-angle-double-right"></i>Chính Sách Đổi Trả</a></li>
+							<li><a href="#"><i class="fa fa-angle-double-right"></i>Quy Định Bảo Hành</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+						<p>Công ty TNHH Công nghệ TechZone Việt Nam | Số ĐKKD 0107273909 do Sở KHĐT Thành phố Hà Nội cấp ngày 30/12/2015</p>
+						<br></br>
+						<p class="h6">© All right Reversed.</p>
+					</div>
+					<hr></hr>
+				</div>
+			</div>
+		</section>
     );
 }

@@ -23,7 +23,7 @@ export default function ShippingAddressScreen(props) {
     <div>
       <form className="form" >
         <div>
-          <h1>Shipping Address</h1>
+          <h1>Địa chỉ nhận hàng</h1>
         </div>
         <div>
           <label htmlFor="fullName">Họ tên</label>

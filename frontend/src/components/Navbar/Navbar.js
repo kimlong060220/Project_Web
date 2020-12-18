@@ -52,7 +52,7 @@ export default function Navbar() {
           {console.log(userInfo)}
           {userInfo ? (
             <div>
-                <Link to="#">Hello: {userInfo.name}</Link>
+                <Link to="/profile">Hello: {userInfo.name}</Link>
                 <Link to="#signout" onClick={signoutHandler}>
                     Sign Out
                 </Link>
