@@ -17,6 +17,7 @@ export default function ProductScreen(props) {
   const [qty, setQty] = useState(1);
   const productDetails = useSelector((state) => state.productDetails);
   const { error, product } = productDetails;
+  console.log(product.productdetails)
   const table = [
     {col1:"mat kinh" ,  col2:"saphia"},
     {col1:"size" , col2: "44" }

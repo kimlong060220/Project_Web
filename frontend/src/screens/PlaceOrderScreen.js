@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { createOrder } from '../actions/orderActions';
 import { ORDER_CREATE_RESET } from '../constants/orderConstants';
-import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
 export default function PlaceOrderScreen(props) {
   const cart = useSelector((state) => state.cart);
-  if (!cart.paymentMethod) {
-    props.history.push('/payment');
-  }
+  
+  // if (!cart.paymentMethod) {
+  //   props.history.push('/payment');
+  // }
   const orderCreate = useSelector((state) => state.orderCreate);
   const { loading, success, error, order } = orderCreate;
   const toPrice = (num) => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12
@@ -129,7 +129,6 @@ export default function PlaceOrderScreen(props) {
                   Place Order
                 </button>
               </li>
-              {loading && <LoadingBox></LoadingBox>}
               {error && <MessageBox variant="danger">{error}</MessageBox>}
             </ul>
           </div>

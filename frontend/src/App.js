@@ -11,9 +11,7 @@ import SigninScreen from './screens/SigninScreen';
 import BottomHeader from './components/BottomHeader/BottomHeader';
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import Navbar  from './components/Navbar/Navbar';
-import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import ProductScreen from './screens/ProductScreen';
-import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import Footer from './components/Footer';
 
@@ -27,8 +25,6 @@ function App() {
           <Route path="/product/:id" component={ProductScreen} exact></Route>
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
-          <Route path="/shipping" component={ShippingAddressScreen}></Route>
-          <Route path="/payment" component={PaymentMethodScreen}></Route>
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
 
 
