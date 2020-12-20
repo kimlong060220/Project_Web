@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from './react-redux';
 import { detailsProduct } from '../actions/productActions';
 import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';
-import './ProductScreen.css'
+import './ProductDetailScreen.css'
 
 var item = [
   ['1', '2'],
@@ -56,7 +55,6 @@ export default function ProductScreen(props) {
        <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div >
-          {/* <Link to="/">Back to result</Link> */}
           <div className="row">
             <div className="col-2">
               <img

@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "./react-router-dom";
 import "./Navbar.css";
-import { BsSearch } from "react-icons/bs";
-import { IoIosListBox } from "react-icons/io";
-import { GiAutoRepair } from "react-icons/gi";
-import { BsFillPersonFill } from "react-icons/bs";
-import { FaShoppingCart } from "react-icons/fa";
-import { useSelector,useDispatch } from "react-redux";
+import { BsSearch } from "./react-icons/bs";
+import { IoIosListBox } from "./react-icons/io";
+import { GiAutoRepair } from "./react-icons/gi";
+import { BsFillPersonFill } from "./react-icons/bs";
+import { FaShoppingCart } from "./react-icons/fa";
+import { useSelector,useDispatch } from "./react-redux";
 import { signout } from '../../actions/userActions';
 
 export default function Navbar() {
@@ -38,7 +38,7 @@ export default function Navbar() {
           </button>
         </form>
         <li className="Nav-item">
-          <Link>
+          <Link to="/orderhistory">
             <IoIosListBox />
             Kiểm tra đơn hàng
           </Link>

@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-mongoose.connect('mongodb+srv://Nghia:Tanlenghia06032000@cluster0.w36ht.mongodb.net/Cluster0?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_URL||'mongodb+srv://Nghia:Tanlenghia06032000@cluster0.w36ht.mongodb.net/Cluster0?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
@@ -32,6 +32,9 @@ app.get('/', (req, res) => {
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
+if(process.env.NODE_ENV === 'production') {
+  
+}
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

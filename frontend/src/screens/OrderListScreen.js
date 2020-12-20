@@ -1,42 +1,66 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteOrder, listOrders } from '../actions/orderActions';
+import { useDispatch, useSelector } from './react-redux';
+import { deleteOrder, listOrders, payOrder,deliverOrder } from '../actions/orderActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { ORDER_DELETE_RESET } from '../constants/orderConstants';
 
 export default function OrderListScreen(props) {
   const orderList = useSelector((state) => state.orderList);
-  const { error, orders } = orderList;
+  const {loading, error, orders } = orderList;
   const orderDelete = useSelector((state) => state.orderDelete);
+  const orderDeliver = useSelector((state) => state.orderDeliver);
   const {
     loading: loadingDelete,
     error: errorDelete,
     success: successDelete,
   } = orderDelete;
+  const {
+    loading: loadingDeliver,
+    error: errorDeliver,
+    success: successDeliver,
+  } = orderDeliver;
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({ type: ORDER_DELETE_RESET });
+    dispatch({ type: 'ORDER_DELETE_RESET' });
     dispatch(listOrders({}));
-  }, [dispatch, successDelete, userInfo._id]);
-  // if(success) {
-  //   dispatch
-  // }
+    // props.history.push('/signin?redirect=orderlist');
+  }, [dispatch, successDelete]);
+  useEffect(() => {
+    if(successDeliver){
+    dispatch({ type: 'ORDER_DELIVER_RESET' });
+    dispatch(listOrders({}));
+    }
+    // props.history.push('/signin?redirect=orderlist');
+  }, [dispatch, successDeliver]);
+
   const deleteHandler = (order) => {
-    if (window.confirm('Are you sure to delete?')) {
+    if (window.confirm('Bạn chắc chắn muốn xoá không?')) {
       dispatch(deleteOrder(order._id));
-      // props.history.push('/signin?redirect=orderlist');
+      dispatch(listOrders({}))
+      props.history.push('/signin?redirect=orderlist');
     }
   };
+  const paidHandler = (order) => {
+    dispatch(payOrder(order,{}))
+    dispatch(listOrders({}))
+    props.history.push('/signin?redirect=orderlist');
+  }
+  const deliverHandler = (order) => {
+    dispatch(deliverOrder(order._id))
+    dispatch(listOrders({}))
+    props.history.push('/signin?redirect=orderlist');
+  }
   return (
     <div>
       <h1>Orders</h1>
       {loadingDelete && <LoadingBox></LoadingBox>}
       {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
-      { error ? (
+      { loading ? (
+        <LoadingBox></LoadingBox>
+      ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <table className="table">
@@ -80,6 +104,20 @@ export default function OrderListScreen(props) {
                     onClick={() => deleteHandler(order)}
                   >
                     Delete
+                  </button>
+                  <button
+                    type="button"
+                    className="small"
+                    onClick={() => paidHandler(order)}
+                  >
+                    IsPaid
+                  </button>
+                  <button
+                    type="button"
+                    className="small"
+                    onClick={() => deliverHandler(order)}
+                  >
+                    IsDelivered
                   </button>
                 </td>
               </tr>
