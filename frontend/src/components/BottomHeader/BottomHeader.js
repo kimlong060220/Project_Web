@@ -4,7 +4,7 @@ export default function BottomHeader() {
     return (
       <div className="BottomHeader">
         <nav className="navbar ">
-          <ul className="navbar-nav flex-row justify-content-between w-100">
+          <ul className="navbar-nav">
             <li className="nav-item">
               <a className="nav-link">THIẾT BỊ ĐEO TAY</a>
               <ul className="DropDown">

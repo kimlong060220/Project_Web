@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Link, Route } from 'react-router-dom';
-import { signout } from './actions/userActions';
+import { BrowserRouter, Route } from 'react-router-dom';
 import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
 import CartScreen from './screens/CartScreen';
@@ -14,6 +13,7 @@ import Navbar  from './components/Navbar/Navbar';
 import ProductScreen from './screens/ProductScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import Footer from './components/Footer';
+import OrderListScreen from './screens/OrderListScreen';
 
 function App() {
   return (
@@ -27,7 +27,11 @@ function App() {
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
 
-
+          <AdminRoute
+            path="/orderlist"
+            component={OrderListScreen}
+            exact
+          ></AdminRoute>
           <PrivateRoute
             path="/profile"
             component={ProfileScreen}

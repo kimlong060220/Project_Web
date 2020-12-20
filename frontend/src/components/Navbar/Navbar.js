@@ -19,6 +19,7 @@ export default function Navbar() {
     dispatch(signout());
   };
   return (
+    <>
     <nav className="topnav">
       <ul className="nav-list">
         <li className="Nav-item">
@@ -73,6 +74,24 @@ export default function Navbar() {
         </li>
       </ul>
     </nav>
+    {userInfo && userInfo.isAdmin && (
+    <div className="AdminHeader">
+    <nav className="navbar">
+      <ul className="nav-list">
+          <li className="Nav-item">
+            <Link to="/productlist">Products</Link>
+          </li>
+          <li className="Nav-item">
+            <Link to="/orderlist">Orders</Link>
+          </li>
+          <li className="Nav-item">
+            <Link to="/userlist">Users</Link>
+          </li>
+        </ul>
+      </nav>
+      </div>
+    )}
+    </>
   );
 }
 // export default Navbar;

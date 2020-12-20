@@ -30,7 +30,7 @@ export default function CartScreen(props) {
       saveShippingAddress({ fullName, address, city, postalCode, country, number })
     );
     // console.log(cart)
-  },[dispatch,fullName,address,city,postalCode,country])
+  },[dispatch,fullName,address,city,postalCode,country,number])
   useEffect(() => {
     if (productId) {
       dispatch(addToCart(productId, qty));
