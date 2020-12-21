@@ -50,7 +50,7 @@ export default function PlaceOrderScreen(props) {
               <div className="card card-body">
                 <h2>Payment</h2>
                 <p>
-                  <strong>Method:</strong> {order.paymentMethod === 'cash' ? 'Thanh toán khi nhận hàng':'VN-pay' }
+                  <strong>Method:</strong> {cart.paymentMethod === 'cash' ? 'Thanh toán khi nhận hàng':'VN-pay' }
                 </p>
               </div>
             </li>
