@@ -1,4 +1,4 @@
-import Axios from './axios';
+import Axios from 'axios';
 
 export const addToCart = (productId, qty) => async (dispatch, getState) => {
   const { data } = await Axios.get(`/api/products/${productId}`);

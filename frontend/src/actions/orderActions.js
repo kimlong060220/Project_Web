@@ -1,4 +1,4 @@
-import Axios from './axios';
+import Axios from 'axios';
 
 export const createOrder = (order) => async (dispatch, getState) => {
   dispatch({ type: 'ORDER_CREATE_REQUEST', payload: order });

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from './react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { detailsProduct } from '../actions/productActions';
 import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';

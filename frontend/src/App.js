@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from './react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
 import CartScreen from './screens/CartScreen';

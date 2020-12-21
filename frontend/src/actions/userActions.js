@@ -1,4 +1,4 @@
-import Axios from './axios';
+import Axios from 'axios';
 
 
 export const register = (name, email, password) => async (dispatch) => {
