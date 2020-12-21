@@ -8,8 +8,9 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { useSelector,useDispatch } from "react-redux";
 import { signout } from '../../actions/userActions';
+import { searchProduct } from'../../actions/productActions';
 
-export default function Navbar() {
+export default function Navbar(props) {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const cart = useSelector((state) => state.cart);
@@ -18,6 +19,11 @@ export default function Navbar() {
   const signoutHandler = () => {
     dispatch(signout());
   };
+  const searchHandler = (category) => {
+    dispatch(searchProduct(category))
+    // props.history.push('/search')
+    console.log('okeeee')
+  }
   return (
     <>
     <nav className="topnav">
@@ -31,8 +37,9 @@ export default function Navbar() {
         <li className="Nav-item">
           <Link>Thương hiệu</Link>
         </li>
-        <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search" />
+        {/* onKeyPress={(e) => {searchHandler(e.target.value)}} */}
+        <form action="/search">
+          <input type="text" placeholder="Search.." name="category" onChange={(e) => {searchHandler(e.target.value)}} />
           <button type="submit">
             <BsSearch />
           </button>

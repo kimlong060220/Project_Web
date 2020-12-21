@@ -13,7 +13,14 @@ productRouter.get(
     res.send(products);
   })
 );
-
+productRouter.get('/search',expressAsyncHandler(async (req, res) => {
+  const products = await Product.find({category:req.query.category})
+  if (products) {
+    // console.log(product)
+    res.send(products)     
+  } else {
+    res.status(404).send({ message: 'Product Not Found' });
+  }}))
 productRouter.get(
   '/seed',
   expressAsyncHandler(async (req, res) => {

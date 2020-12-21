@@ -8,6 +8,19 @@ export const productListReducer = (
       return { products: action.payload };
     case 'PRODUCT_LIST_FAIL':
       return { error: action.payload };
+    case 'PRODUCT_SEARCH_SUCCESS':
+      return { products:action.payload };
+    default:
+      return state;
+  }
+};
+export const productListSearchReducer = (
+  state = {  products: [] },
+  action
+) => {
+  switch (action.type) {
+    case 'PRODUCT_SEARCH_SUCCESS':
+      return { products:action.payload };
     default:
       return state;
   }

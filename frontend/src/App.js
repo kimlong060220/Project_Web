@@ -20,6 +20,7 @@ import UserListScreen from './screens/UserListScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import OrderScreen from './screens/OrderScreen';
 import UserEditScreen from './screens/UserEditScreen';
+import Search from './screens/Search';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
           <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
           <Route path="/order/:id" component={OrderScreen}></Route>
+          <Route path="/search" component={Search}></Route>
 
 
 
