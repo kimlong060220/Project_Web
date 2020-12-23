@@ -50,7 +50,7 @@ export default function OrderHistoryScreen(props) {
                       props.history.push(`/order/${order._id}`);
                     }}
                   >
-                    Details
+                    Chi tiết
                   </button>
                 </td>
               </tr>
