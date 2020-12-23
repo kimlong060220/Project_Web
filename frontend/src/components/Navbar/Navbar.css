@@ -24,6 +24,9 @@ img.logo {
     flex: 1; 
     align-self: center;
 }
+.nav-list .Nav-item .small-text{
+    font-size: small;
+}
 .nav-list .Nav-item a {
     display: inline-block;
     color: black;
@@ -73,4 +76,7 @@ img.logo {
 }
 #cart{
     flex-grow: 0.5;
+}
+.nav-list .Nav-item .login a {
+    padding: 0px;
 }

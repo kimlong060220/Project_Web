@@ -23,11 +23,11 @@ export default function OrderHistoryScreen(props) {
           <thead>
             <tr>
               <th>ID</th>
-              <th>DATE</th>
-              <th>TOTAL</th>
-              <th>PAID</th>
-              <th>DELIVERED</th>
-              <th>ACTIONS</th>
+              <th>Ngày</th>
+              <th>Tổng</th>
+              <th>Thanh toán</th>
+              <th>Đã giao hàng</th>
+              <th>Xem thêm</th>
             </tr>
           </thead>
           <tbody>
