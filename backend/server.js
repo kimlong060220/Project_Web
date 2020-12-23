@@ -5,8 +5,6 @@ import userRouter from './routers/userRouter.js';
 import orderRouter from './routers/orderRouter.js';
 import cors from 'cors'
 
-// import uploadRouter from './routers/uploadRouter.js';
-
 
 const app = express();
 app.use(cors())
