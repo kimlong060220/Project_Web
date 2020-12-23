@@ -4,13 +4,14 @@ import productRouter from './routers/productRouter.js';
 import userRouter from './routers/userRouter.js';
 import orderRouter from './routers/orderRouter.js';
 import cors from 'cors'
+import path from 'path';
+
 
 
 const app = express();
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 mongoose.connect(process.env.MONGODB_URL||'mongodb+srv://Nghia:Tanlenghia06032000@cluster0.w36ht.mongodb.net/Cluster0?retryWrites=true&w=majority', {
   useNewUrlParser: true,
@@ -31,7 +32,10 @@ app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
 if(process.env.NODE_ENV === 'production') {
-  app.use(express.static('../frontend/build'))
+  app.use(express.static(path.join(__dirname, '/frontend/build')))
+  app.get('*',(req,res) =>{
+    res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
+  })
 }
 
 const port = process.env.PORT || 5000;
