@@ -85,24 +85,13 @@ export default function ProductScreen(props) {
                   <p>{product.description}</p>
                 </li>
                   <li>
-                    <div className = "color">
-                      <p>Màu sắc:
-                      <button class="button"></button>
-                      <button class="button button2"></button>
-                      <button class="button button3"></button>
-                      <button class="button button5"></button>
-                      </p>
-                     
-                    </div>
-                  </li>
-                  <li>
                     <div className="row">
-                      <div>Status</div>
+                      <div>Tình trạng</div>
                       <div>
                         {product.countInStock > 0 ? (
-                          <span className="success">In Stock</span>
+                          <span className="success">Còn hàng</span>
                         ) : (
-                          <span className="danger">Unavailable</span>
+                          <span className="danger">Hết hàng</span>
                         )}
                       </div>
                     </div>
@@ -111,7 +100,7 @@ export default function ProductScreen(props) {
                     <>
                       <li>
                         <div className="row">
-                          <div>Qty</div>
+                          <div>Số lượng</div>
                           <div>
                             <select
                               value={qty}
@@ -133,7 +122,7 @@ export default function ProductScreen(props) {
                           onClick={addToCartHandler}
                           className="primary block"
                         >
-                          Add to Cart
+                          Thêm vào giỏ hàng
                         </button>
                       </li>
                     </>
@@ -162,20 +151,27 @@ export default function ProductScreen(props) {
           </div>
           <div className ='row'>
             <div className = 'col-3'>
-              {description.map(renderDescription)}
+            {product.descrip && product.descrip.map((item) => (
+                <div>
+                <h2>{item.title}</h2>
+                <p>{item.des}</p>
+                </div>
+              ))}
             </div>
             <div className = 'col-1'>
               <h1>Thông số Kĩ thuật</h1>
               <table>
                 <tbody>
-                  {table.map(renderPlayer)}
+                {product.productdetails && product.productdetails.map((item) => (
+                    <tr>
+                      <td>{item.col1}</td>
+                      <td>{item.col2}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
-          </div>                        
-          <div className = "same_product">
-              <h1> Sản phầm cùng tầm giá</h1>
-          </div>                        
+          </div>                                    
         </div>
       )} 
     </div>

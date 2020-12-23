@@ -50,6 +50,20 @@ const data = {
       rating: 4.0,
       numReviews: 10,
       description: 'Đồng hồ thông minh',
+      productdetails: [
+        {
+          col1: 'mặt kính',
+          col2: 'saphire'
+        },
+        {
+          col1: 'size',
+          col2: '44'
+        }
+      ],
+      descrip: [
+        {title : "Hiệu suất vượt trội"  , des : "Trang bị bộ vi xử lý Intel thế hệ thứ 10, IdeaPad S145 được thiết kế để giúp bạn hoàn thành công việc tốt nhất. Nó cũng đi kèm với một loạt các tùy chọn lưu trữ an toàn, bao gồm một SSD lai với ổ đĩa cứng, đảm bảo thời gian phản hồi thậm chí còn nhanh hơn."},
+      ]
+
     },
     {
       name: 'Máy tính Fujusu',
@@ -61,6 +75,19 @@ const data = {
       rating: 4.8,
       numReviews: 17,
       description: 'máy tính dell',
+      productdetails: [
+        {
+          col1: 'mặt kính',
+          col2: 'saphire'
+        },
+        {
+          col1: 'size',
+          col2: '44'
+        }
+      ],
+      descrip: [
+        {title : "Hiệu suất vượt trội"  , des : "Trang bị bộ vi xử lý Intel thế hệ thứ 10, IdeaPad S145 được thiết kế để giúp bạn hoàn thành công việc tốt nhất. Nó cũng đi kèm với một loạt các tùy chọn lưu trữ an toàn, bao gồm một SSD lai với ổ đĩa cứng, đảm bảo thời gian phản hồi thậm chí còn nhanh hơn."},
+      ]
     },
     {
       name: 'Màn Lenovo',
@@ -72,6 +99,19 @@ const data = {
       rating: 4.5,
       numReviews: 14,
       description: 'màn hình zin',
+      productdetails: [
+        {
+          col1: 'mặt kính',
+          col2: 'saphire'
+        },
+        {
+          col1: 'size',
+          col2: '44'
+        }
+      ],
+      descrip: [
+        {title : "Hiệu suất vượt trội"  , des : "Trang bị bộ vi xử lý Intel thế hệ thứ 10, IdeaPad S145 được thiết kế để giúp bạn hoàn thành công việc tốt nhất. Nó cũng đi kèm với một loạt các tùy chọn lưu trữ an toàn, bao gồm một SSD lai với ổ đĩa cứng, đảm bảo thời gian phản hồi thậm chí còn nhanh hơn."},
+      ]
     },
     {
       name: 'Máy tính Dell pro',
@@ -83,6 +123,19 @@ const data = {
       rating: 4.5,
       numReviews: 10,
       description: 'high quality product',
+      productdetails: [
+        {
+          col1: 'mặt kính',
+          col2: 'saphire'
+        },
+        {
+          col1: 'size',
+          col2: '44'
+        }
+      ],
+      descrip: [
+        {title : "Hiệu suất vượt trội"  , des : "Trang bị bộ vi xử lý Intel thế hệ thứ 10, IdeaPad S145 được thiết kế để giúp bạn hoàn thành công việc tốt nhất. Nó cũng đi kèm với một loạt các tùy chọn lưu trữ an toàn, bao gồm một SSD lai với ổ đĩa cứng, đảm bảo thời gian phản hồi thậm chí còn nhanh hơn."},
+      ]
     },
     {
       name: 'Máy tính dell XP',
@@ -94,6 +147,19 @@ const data = {
       rating: 4.5,
       numReviews: 15,
       description: 'máy tính',
+      productdetails: [
+        {
+          col1: 'mặt kính',
+          col2: 'saphire'
+        },
+        {
+          col1: 'size',
+          col2: '44'
+        }
+      ],
+      descrip: [
+        {title : "Hiệu suất vượt trội"  , des : "Trang bị bộ vi xử lý Intel thế hệ thứ 10, IdeaPad S145 được thiết kế để giúp bạn hoàn thành công việc tốt nhất. Nó cũng đi kèm với một loạt các tùy chọn lưu trữ an toàn, bao gồm một SSD lai với ổ đĩa cứng, đảm bảo thời gian phản hồi thậm chí còn nhanh hơn."},
+      ]
     },
   ],
 };
