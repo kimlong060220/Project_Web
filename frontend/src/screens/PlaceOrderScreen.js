@@ -75,7 +75,7 @@ export default function PlaceOrderScreen(props) {
                         </div>
 
                         <div>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                          {item.qty} x {item.price}đ = {item.qty * item.price}đ
                         </div>
                       </div>
                     </li>
@@ -94,19 +94,19 @@ export default function PlaceOrderScreen(props) {
               <li>
                 <div className="row">
                   <div>Items</div>
-                  <div>${cart.itemsPrice}</div>
+                  <div>{cart.itemsPrice}đ</div>
                 </div>
               </li>
               <li>
                 <div className="row">
                   <div>Shipping</div>
-                  <div>${cart.shippingPrice}</div>
+                  <div>{cart.shippingPrice}đ</div>
                 </div>
               </li>
               <li>
                 <div className="row">
                   <div>Tax</div>
-                  <div>${cart.taxPrice}</div>
+                  <div>{cart.taxPrice}đ</div>
                 </div>
               </li>
               <li>
@@ -115,7 +115,7 @@ export default function PlaceOrderScreen(props) {
                     <strong> Order Total</strong>
                   </div>
                   <div>
-                    <strong>${cart.totalPrice}</strong>
+                    <strong>{cart.totalPrice}đ</strong>
                   </div>
                 </div>
               </li>
