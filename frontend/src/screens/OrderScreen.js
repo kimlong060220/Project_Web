@@ -1,36 +1,49 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { createOrder } from '../actions/orderActions';
+import {  detailsOrder } from '../actions/orderActions';
+import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
-export default function PlaceOrderScreen(props) {
-  const cart = useSelector((state) => state.cart);
-  
-  // if (!cart.paymentMethod) {
-  //   props.history.push('/payment');
-  // }
-  const orderCreate = useSelector((state) => state.orderCreate);
-  const { loading, success, error, order } = orderCreate;
-  const toPrice = (num) => Number(num.toFixed(0)); // 5.123 => "5.12" => 5.12
-  cart.itemsPrice = toPrice(
-    cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
-  );
-  cart.shippingPrice = cart.itemsPrice > 600000 ? toPrice(0) : toPrice(10000);
-  cart.taxPrice = toPrice(0.1 * cart.itemsPrice);
-  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
+
+export default function OrderScreen(props) {
+  const orderId = props.match.params.id;
+  const orderDetails = useSelector((state) => state.orderDetails);
+  const { order, loading, error } = orderDetails;
+
+  const orderPay = useSelector((state) => state.orderPay);
+  const {
+    loading: loadingPay,
+    error: errorPay,
+    success: successPay,
+  } = orderPay;
+  const orderDeliver = useSelector((state) => state.orderDeliver);
+  const {
+    loading: loadingDeliver,
+    error: errorDeliver,
+    success: successDeliver,
+  } = orderDeliver;
   const dispatch = useDispatch();
-  const placeOrderHandler = () => {
-    dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
-  };
   useEffect(() => {
-    if (success) {
-      props.history.push(`/order/${order._id}`);
-      dispatch({ type: 'ORDER_CREATE_RESET' });
-    }
-  }, [dispatch, order, props.history, success]);
-  return (
+    if (
+      !order ||
+      successPay ||
+      successDeliver ||
+      (order && order._id !== orderId)
+    ) {
+      dispatch({ type: 'ORDER_PAY_RESET' });
+      dispatch({ type: 'ORDER_DELIVER_RESET' });
+      dispatch(detailsOrder(orderId));
+    } 
+  }, [dispatch, orderId, successPay, successDeliver, order]);
+
+  return loading ? (
+    <LoadingBox></LoadingBox>
+  ) : error ? (
+    <MessageBox variant="danger">{error}</MessageBox>
+  ) : (
     <div>
+      <h1>Order {order._id}</h1>
       <div className="row top">
         <div className="col-2">
           <ul>
@@ -38,27 +51,42 @@ export default function PlaceOrderScreen(props) {
               <div className="card card-body">
                 <h2>Shipping</h2>
                 <p>
-                  <strong>Tên:</strong> {cart.shippingAddress.fullName} <br />
-                  <strong>SĐT:</strong> {cart.shippingAddress.number} <br />
-                  <strong>Địa chỉ: </strong> {cart.shippingAddress.address},
-                  {cart.shippingAddress.city}, {cart.shippingAddress.postalCode}
-                  ,{cart.shippingAddress.country}
+                  <strong>Tên:</strong> {order.shippingAddress.fullName} <br />
+                  <strong>SĐT:</strong> {order.shippingAddress.number} <br />
+                  <strong>Địa chỉ: </strong> {order.shippingAddress.address},
+                  {order.shippingAddress.city},{' '}
+                  {order.shippingAddress.postalCode},
+                  {order.shippingAddress.country}
                 </p>
+                {order.isDelivered ? (
+                  <MessageBox variant="success">
+                    Đã giao hàng {order.deliveredAt.substring(0, 10)}
+                  </MessageBox>
+                ) : (
+                  <MessageBox variant="danger">Chưa giao hàng</MessageBox>
+                )}
               </div>
             </li>
             <li>
               <div className="card card-body">
                 <h2>Payment</h2>
                 <p>
-                  <strong>Method:</strong> {cart.paymentMethod === 'cash' ? 'Thanh toán khi nhận hàng':'VN-pay' }
+                  <strong>Method:</strong> {order.paymentMethod === 'cash' ? 'Thanh toán khi nhận hàng':'VN-pay' }
                 </p>
+                {order.isPaid ? (
+                  <MessageBox variant="success">
+                    Đã thanh toán {order.paidAt.substring(0, 10)}
+                  </MessageBox>
+                ) : (
+                  <MessageBox variant="danger">Chưa thanh toán</MessageBox>
+                )}
               </div>
             </li>
             <li>
               <div className="card card-body">
                 <h2>Order Items</h2>
                 <ul>
-                  {cart.cartItems.map((item) => (
+                  {order.orderItems.map((item) => (
                     <li key={item.product}>
                       <div className="row">
                         <div>
@@ -94,19 +122,19 @@ export default function PlaceOrderScreen(props) {
               <li>
                 <div className="row">
                   <div>Items</div>
-                  <div>${cart.itemsPrice}</div>
+                  <div>${order.itemsPrice}</div>
                 </div>
               </li>
               <li>
                 <div className="row">
                   <div>Shipping</div>
-                  <div>${cart.shippingPrice}</div>
+                  <div>${order.shippingPrice}</div>
                 </div>
               </li>
               <li>
                 <div className="row">
                   <div>Tax</div>
-                  <div>${cart.taxPrice}</div>
+                  <div>${order.taxPrice}</div>
                 </div>
               </li>
               <li>
@@ -115,21 +143,10 @@ export default function PlaceOrderScreen(props) {
                     <strong> Order Total</strong>
                   </div>
                   <div>
-                    <strong>${cart.totalPrice}</strong>
+                    <strong>${order.totalPrice}</strong>
                   </div>
                 </div>
               </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={placeOrderHandler}
-                  className="primary block"
-                  disabled={cart.cartItems.length === 0}
-                >
-                  Đặt Hàng
-                </button>
-              </li>
-              {error && <MessageBox variant="danger">{error}</MessageBox>}
             </ul>
           </div>
         </div>

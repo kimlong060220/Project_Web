@@ -13,7 +13,14 @@ productRouter.get(
     res.send(products);
   })
 );
-
+productRouter.get('/search',expressAsyncHandler(async (req, res) => {
+  const products = await Product.find({category:req.query.category})
+  if (products) {
+    // console.log(product)
+    res.send(products)     
+  } else {
+    res.status(404).send({ message: 'Product Not Found' });
+  }}))
 productRouter.get(
   '/seed',
   expressAsyncHandler(async (req, res) => {
@@ -28,6 +35,7 @@ productRouter.get(
   expressAsyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id)
     if (product) {
+      // console.log(product)
       res.send(product);
     } else {
       res.status(404).send({ message: 'Product Not Found' });
@@ -41,7 +49,6 @@ productRouter.post(
   expressAsyncHandler(async (req, res) => {
     const product = new Product({
       name: 'sample name ' + Date.now(),
-      seller: req.user._id,
       image: '/images/p1.jpg',
       price: 0,
       category: 'sample category',

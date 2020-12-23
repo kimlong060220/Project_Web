@@ -8,8 +8,9 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { useSelector,useDispatch } from "react-redux";
 import { signout } from '../../actions/userActions';
+import { searchProduct } from'../../actions/productActions';
 
-export default function Navbar() {
+export default function Navbar(props) {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const cart = useSelector((state) => state.cart);
@@ -18,11 +19,17 @@ export default function Navbar() {
   const signoutHandler = () => {
     dispatch(signout());
   };
+  const searchHandler = (category) => {
+    dispatch(searchProduct(category))
+    // props.history.push('/search')
+    console.log('okeeee')
+  }
   return (
+    <>
     <nav className="topnav">
       <ul className="nav-list">
         <li className="Nav-item">
-          <Link to="/">Home</Link>
+          <Link to="/"><img className="logo" src="/images/logo.png"></img></Link>
         </li>
         <li className="Nav-item">
           <Link to="/Login">Tin Tức</Link>
@@ -30,14 +37,15 @@ export default function Navbar() {
         <li className="Nav-item">
           <Link>Thương hiệu</Link>
         </li>
-        <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search" />
+        {/* onKeyPress={(e) => {searchHandler(e.target.value)}} */}
+        <form action="/search">
+          <input type="text" placeholder="Search.." name="category" onChange={(e) => {searchHandler(e.target.value)}} />
           <button type="submit">
             <BsSearch />
           </button>
         </form>
         <li className="Nav-item">
-          <Link>
+          <Link to="/orderhistory">
             <IoIosListBox />
             Kiểm tra đơn hàng
           </Link>
@@ -52,7 +60,7 @@ export default function Navbar() {
           {console.log(userInfo)}
           {userInfo ? (
             <div>
-                <Link to="#">Hello: {userInfo.name}</Link>
+                <Link to="/profile">Hello: {userInfo.name}</Link>
                 <Link to="#signout" onClick={signoutHandler}>
                     Sign Out
                 </Link>
@@ -73,6 +81,24 @@ export default function Navbar() {
         </li>
       </ul>
     </nav>
+    {userInfo && userInfo.isAdmin && (
+    <div className="AdminHeader">
+    <nav className="navbar">
+      <ul className="nav-list">
+          <li className="Nav-item">
+            <Link to="/productlist">Products</Link>
+          </li>
+          <li className="Nav-item">
+            <Link to="/orderlist">Orders</Link>
+          </li>
+          <li className="Nav-item">
+            <Link to="/userlist">Users</Link>
+          </li>
+        </ul>
+      </nav>
+      </div>
+    )}
+    </>
   );
 }
 // export default Navbar;
