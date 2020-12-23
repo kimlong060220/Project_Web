@@ -18,28 +18,13 @@
 .product-container .col-3 {
     flex: 32 1 75rem;
   }
-  .button2 {background-color: #008CBA;} /* Blue */
-  .button3 {background-color: #f44336;} /* Red */ 
-  .button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
-  .button5 {background-color: #555555;} /* Black */
-  .button {
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    padding: 15px;
-  }
 table{
   width: 100%;
   border-collapse: collapse ;
   overflow: hidden;
 }
  table td {
-  border: 1px solid black;
+  border: 1px solid rgb(85, 76, 76);
 }
 .product-container .price_product{
   font-size: px;

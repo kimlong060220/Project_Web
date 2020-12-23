@@ -34,9 +34,6 @@ export default function Navbar(props) {
         <li className="Nav-item">
           <Link to="/Login">Tin Tức</Link>
         </li>
-        <li className="Nav-item">
-          <Link>Thương hiệu</Link>
-        </li>
         {/* onKeyPress={(e) => {searchHandler(e.target.value)}} */}
         <form action="/search">
           <input type="text" placeholder="Search.." name="category" onChange={(e) => {searchHandler(e.target.value)}} />
@@ -44,25 +41,25 @@ export default function Navbar(props) {
             <BsSearch />
           </button>
         </form>
-        <li className="Nav-item">
+        <li className="Nav-item small-text">
           <Link to="/orderhistory">
             <IoIosListBox />
             Kiểm tra đơn hàng
           </Link>
         </li>
-        <li className="Nav-item">
+        {/* <li className="Nav-item small-text">
           <Link>
             <GiAutoRepair />
             Kiểm tra bảo hành
           </Link>
-        </li>
+        </li> */}
         <li className="Nav-item" id="login">
           {console.log(userInfo)}
           {userInfo ? (
-            <div>
-                <Link to="/profile">Hello: {userInfo.name}</Link>
-                <Link to="#signout" onClick={signoutHandler}>
-                    Sign Out
+            <div className = "login small-text">
+                <Link to="/profile" >Hello: {userInfo.name}</Link>
+                <Link to="#signout" onClick={signoutHandler} style = {{color : "red"}}>
+                    Thoát
                 </Link>
             </div>          
           ) : (
