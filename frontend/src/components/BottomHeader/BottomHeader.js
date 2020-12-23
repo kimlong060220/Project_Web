@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./BottomHeader.css";
 export default function BottomHeader() {
     return (
@@ -17,9 +18,9 @@ export default function BottomHeader() {
                     data-was-processed="true"
                   ></img>{" "}
                   <ul className="ColumnSubMenu">
-                    <li>Đồng hồ thông minh Garmin</li>
-                    <li>Đồng hồ thông minh SamSung</li>
-                    <li>Đồng hồ thông minh Apple</li>
+                    <li><Link to={`/search?category=watch&brand=Garmin`}>Đồng hồ thông minh Garmin</Link></li>
+                    <li><Link to={`/search?category=watch&brand=SamSung`}>Đồng hồ thông minh SamSung</Link></li>
+                    <li><Link to={`/search?category=watch&brand=Apple`}>Đồng hồ thông minh Apple</Link></li>
                   </ul>
                 </li>
                 <li className="Column">
