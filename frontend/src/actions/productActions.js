@@ -24,10 +24,10 @@ export const detailsProduct = (productId) => async (dispatch) => {
     });
   }
 };
-export const searchProduct = (category) => async (dispatch) => {
+export const searchProduct = (category,brand) => async (dispatch) => {
   try {
     const demo = 'watch';
-    const { data } = await Axios.get(`/api/products/search?category=${category}`);
+    const { data } = await Axios.get(`/api/products/search?category=${category}&brand=${brand}`);
     console.log('data....' + data[0].name)
     dispatch({ type: 'PRODUCT_SEARCH_SUCCESS', payload: data });
   } catch (error) {

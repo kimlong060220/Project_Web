@@ -9,13 +9,15 @@ export default function Search(props) {
   const dispatch = useDispatch();
   const productListSearch = useSelector((state) => state.productList);
   const { error,products } = productListSearch;
-  console.log(props.location.search)
-  const category = props.location.search.split('=')[1];
+  // console.log(props.location.search)
+  const category = props.location.search.split('=')[1].split('&')[0];
+  const brand = props.location.search.split('=')[2].split('&')[0];
+  // console.log(brand)
 
 
   useEffect(() => {
-    dispatch(searchProduct(category));
-  }, [dispatch]);
+    dispatch(searchProduct(category,brand));
+  }, [dispatch,productListSearch]);
   return (
     <div>
       <h2>Bạn muốn tìm</h2>
