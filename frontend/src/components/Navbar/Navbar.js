@@ -47,12 +47,12 @@ export default function Navbar(props) {
             Kiểm tra đơn hàng
           </Link>
         </li>
-        <li className="Nav-item small-text">
+        {/* <li className="Nav-item small-text">
           <Link>
             <GiAutoRepair />
             Kiểm tra bảo hành
           </Link>
-        </li>
+        </li> */}
         <li className="Nav-item" id="login">
           {console.log(userInfo)}
           {userInfo ? (

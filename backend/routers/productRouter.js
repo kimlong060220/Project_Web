@@ -14,7 +14,13 @@ productRouter.get(
   })
 );
 productRouter.get('/search',expressAsyncHandler(async (req, res) => {
-  const products = await Product.find({category:req.query.category})
+  const brandfind = req.query.brand;
+  var products = null;
+  if(brandfind) {
+    products = await Product.find({category:req.query.category,brand:req.query.brand})
+  } else {
+    products = await Product.find({category:req.query.category})
+  }
   if (products) {
     // console.log(product)
     res.send(products)     
