@@ -23,9 +23,9 @@ productRouter.get('/search',expressAsyncHandler(async (req, res) => {
   } else {
     products = await Product.find({category:req.query.category})
   }
-  if (products) {
-    // console.log(product)
-    res.send(products)     
+  if (products.length > 0) {
+    console.log('products',products.length)
+    res.send(products)  
   } else {
     res.status(404).send({ message: 'Product Not Found' });
   }}))

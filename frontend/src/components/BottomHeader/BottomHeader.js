@@ -34,9 +34,9 @@ export default function BottomHeader() {
                     ></img>
                   </div>
                   <ul className="ColumnSubMenu">
-                    <li>Vòng Đeo Tay Garmin</li>
-                    <li>Vòng Đeo Tay SamSung</li>
-                    <li>Vòng Đeo Tay MisFit</li>
+                    <li><Link to={`/search?category=bracelet&brand=Garmin`}>Vòng Đeo Tay Garmin</Link></li>
+                    <li><Link to={`/search?category=bracelet&brand=SamSung`}>Vòng Đeo Tay SamSung</Link></li>
+                    <li><Link to={`/search?category=bracelet&brand=Misfit`}>Vòng Đeo Tay MisFit</Link></li>
                   </ul>
                 </li>
                 <li className="Column">
@@ -64,11 +64,11 @@ export default function BottomHeader() {
                   <span className="ColumnTitle">Tai nghe</span>
                   <img alt="Tai nghe" className="loaded" src="https://techzones.vn/Data/Sites/1/media/cover-menu/am-thanh/tainghe.png" data-was-processed="true" />
                   <ul className="ColumnSubMenu">
-                    <li>Tai nghe In-ear</li>
-                    <li>Tai nghe Full-Size</li>
-                    <li>Tai nghe Bluetooth</li>
-                    <li>Tai nghe On-ear</li>
-                    <li>Tai nghe Ear-pud</li>
+                    <li><Link to={`/search?category=inear`}>Tai nghe In-ear</Link></li>
+                    <li><Link to={`/search?category=fullsize`}>Tai nghe Full-Size</Link></li>
+                    <li><Link to={`/search?category=bluetooth`}>Tai nghe Bluetooth</Link></li>
+                    <li><Link to={`/search?category=onear`}>Tai nghe On-ear</Link></li>
+                    <li><Link to={`/search?category=earpud`}>Tai nghe Ear-pud</Link></li>
                   </ul>
                 </li>
                 <li className="Column">

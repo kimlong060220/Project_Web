@@ -12,7 +12,6 @@ export default function Search(props) {
   // console.log(props.location.search)
   const category = props.location.search.split('=')[1].split('&')[0];
   const brand = props.location.search.split('=')[2] ? props.location.search.split('=')[2].split('&')[0] : '';
-  console.log(brand)
 
 
   useEffect(() => {
