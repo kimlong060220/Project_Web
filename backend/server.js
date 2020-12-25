@@ -5,15 +5,16 @@ import userRouter from './routers/userRouter.js';
 import orderRouter from './routers/orderRouter.js';
 import cors from 'cors'
 import path from 'path';
+import dotenv from 'dotenv';
 
-
+dotenv.config();
 
 const app = express();
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.MONGODB_URL||'mongodb+srv://Nghia:Tanlenghia06032000@cluster0.w36ht.mongodb.net/Cluster0?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_URI||'mongodb+srv://Nghia:Tanlenghia06032000@cluster0.w36ht.mongodb.net/Cluster0?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
@@ -31,6 +32,7 @@ app.get('/', (req, res) => {
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
+const __dirname = path.resolve();
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '/frontend/build')))
   app.get('*',(req,res) =>{

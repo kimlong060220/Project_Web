@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "cd frontend && npm run build",
+    "build": "cd frontend && npm install && npm run build",
     "install-client": "cd frontend && npm install",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm run install-client && npm run build",
-    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install npm && run build",
+    "start": "node backend/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
