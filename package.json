@@ -6,7 +6,6 @@
   "scripts": {
     "build": "cd frontend && npm install && npm run build",
     "install-client": "cd frontend && npm install",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install npm && run build",
     "start": "node backend/server.js"
   },
   "dependencies": {
