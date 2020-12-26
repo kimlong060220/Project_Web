@@ -6,7 +6,8 @@
   "scripts": {
     "build": "cd frontend && npm install && npm run build",
     "install-client": "cd frontend && npm install",
-    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
