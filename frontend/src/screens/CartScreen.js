@@ -26,6 +26,7 @@ export default function CartScreen(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(number)
     dispatch(
       saveShippingAddress({ fullName, address, city, postalCode, country, number })
     );
@@ -42,6 +43,9 @@ export default function CartScreen(props) {
   };
   console.log(cart)
   const checkpayment = () => {
+    if(cartItems.length === 0 || shippingAddress.country == "" || shippingAddress.fullName == "" || shippingAddress.address == "" || shippingAddress.city == "" || shippingAddress.postalCode == "" || shippingAddress.number == "" || shippingAddress.country == undefined || shippingAddress.fullName == undefined || shippingAddress.address == undefined || shippingAddress.city == undefined || shippingAddress.postalCode == undefined || shippingAddress.number == undefined){
+      alert('Bạn chưa điền đủ thông tin')
+    }
     dispatch(savePaymentMethod(paymentMethod));
     props.history.push('/signin?redirect=placeorder');
   };
@@ -227,7 +231,7 @@ export default function CartScreen(props) {
             type="submit"
             onClick={checkpayment}
             className="primary block"
-            disabled={cartItems.length === 0 || shippingAddress.country == "" || shippingAddress.fullName == "" || shippingAddress.address == "" || shippingAddress.city == "" || shippingAddress.postalCode == "" }
+            disabled={cartItems.length === 0 || shippingAddress.country == "" || shippingAddress.fullName == "" || shippingAddress.address == "" || shippingAddress.city == "" || shippingAddress.postalCode == "" || shippingAddress.number == "" || shippingAddress.country == undefined || shippingAddress.fullName == undefined || shippingAddress.address == undefined || shippingAddress.city == undefined || shippingAddress.postalCode == undefined || shippingAddress.number == undefined }
           >
             Thanh Toán
           </button>
