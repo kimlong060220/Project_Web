@@ -8,6 +8,7 @@ export default function ProfileScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [sex,setSex] = useState('');
   
 
   const userSignin = useSelector((state) => state.userSignin);
@@ -28,6 +29,7 @@ export default function ProfileScreen() {
     } else {
       setName(user.name);
       setEmail(user.email);
+      setSex(user.sex)
     }
   }, [dispatch, userInfo._id, user]);
   const submitHandler = (e) => {
@@ -40,6 +42,7 @@ export default function ProfileScreen() {
         updateUserProfile({
           userId: user._id,
           name,
+          sex,
           email,
           password,
         })
@@ -82,6 +85,16 @@ export default function ProfileScreen() {
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+              ></input>
+            </div>
+            <div>
+              <label htmlFor="sex">Giới tính</label>
+              <input
+                id="sex"
+                type="sex"
+                value={sex}
+                placeholder="Enter sex"
+                onChange={(e) => setSex(e.target.value)}
               ></input>
             </div>
             <div>

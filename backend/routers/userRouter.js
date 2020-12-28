@@ -74,6 +74,7 @@ userRouter.put(
     if (user) {
       user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
+      user.sex = req.body.sex || user.sex;
       if (req.body.password) {
         user.password = bcrypt.hashSync(req.body.password, 8);
       }
@@ -82,6 +83,7 @@ userRouter.put(
         _id: updatedUser._id,
         name: updatedUser.name,
         email: updatedUser.email,
+        sex:updatedUser.sex,
         isAdmin: updatedUser.isAdmin,
         token: generateToken(updatedUser),
       });
